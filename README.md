@@ -1,8 +1,11 @@
 # Exercícios Iniciais em Java
 
 Este repositório contém exercícios simples desenvolvidos durante meu processo de reaprendizado da linguagem Java.
+
 Bootcamp Santander 2026 - AI Java Back-end
+
 Aula - Fundamentos da Linguagem de Programação Java
+
 Acerto: 70%
 
 O objetivo deste projeto é praticar conceitos básicos da linguagem, como entrada de dados, variáveis, operadores aritméticos, uso da classe `Scanner` e exibição de resultados no console.
