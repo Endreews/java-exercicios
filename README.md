@@ -1,54 +1,72 @@
-# Exercícios iniciais de Java — DIO
+# desafios java
 
-Exercícios que fiz durante o módulo "Fundamentos da Linguagem de Programação Java",
-do bootcamp Santander na DIO. São programas pequenos de console, cada um focado em
-um conceito: entrada de dados, operadores, condicionais e laços de repetição.
+Uns exercícios de Java que fui fazendo pra treinar a base: entrada de dados,
+operadores, condicional, laço, e algumas classes simples pra representar
+conta bancária, retângulo e triângulo. Nada muito elaborado, é só prática.
 
-## Como rodar
+Escrevi em JDK 21, mas não usa nada específico da versão, deve rodar de boa
+a partir do Java 8 também.
 
-Requer JDK 21 (o projeto foi escrito nessa versão, mas os exercícios funcionam a
-partir do Java 8).
+## como tá organizado
+
+```
+src/
+  entities/     (Account, Rectangle, Triangle, usadas por alguns exercícios)
+  exercicios/   (todos os exercícios juntos)
+```
+
+A maioria dos arquivos em `exercicios/` é independente, sem package. Mas
+ContaBancaria, Contagem, Distancia, DistanciaDoisPontos, Retangulo e
+triangulo ainda declaram `package desafios` no código (não mexi nisso) e
+usam as classes de `entities/`, então continuam precisando compilar junto
+com `entities/`.
+
+## rodando
+
+Pra um exercício independente:
 
 ```bash
-javac src/desafios/area-quadrado/AreaQuadrado.java -d out
+javac src/exercicios/AreaQuadrado.java -d out
 java -cp out AreaQuadrado
 ```
 
-Trocando o caminho e o nome da classe, o mesmo comando vale para qualquer exercício.
-Pela IDE, é só abrir o arquivo e rodar o `main`.
+Muda o nome da classe e serve pra qualquer um dos outros que não tem
+package.
 
-## Exercícios
+Pros que tem `package desafios` (ContaBancaria, Contagem, Distancia,
+DistanciaDoisPontos, Retangulo, triangulo), tem que compilar com
+`entities/` junto:
 
-| Pasta | Classe | O que faz |
-|---|---|---|
-| `area-quadrado` | `AreaQuadrado` | Calcula a área de um quadrado a partir do lado |
-| `area-retangulo` | `AreaRetangulo` | Calcula a área de um retângulo a partir da base e da altura |
-| `calculo-comissao` | `SalarioBonus` | Soma o salário fixo com 15% de comissão sobre as vendas |
-| `calculo-salario` | `Main` | Calcula o salário pelas horas trabalhadas e o valor da hora |
-| `calculo-simples` | `CalculoSimples` | Soma o valor total de duas peças (quantidade × preço) |
-| `consumo-combustivel` | `Consumo` | Calcula o consumo médio em km/l |
-| `contagem-crescente` | `ContagemCrescente` | Imprime de 0 a 10 usando `while` |
-| `contagem-decrescente` | `ContagemDecresente` | Imprime de 10 a 0 usando `while` |
-| `diferenca-idade` | `IdadeDiferenca` | Mostra a diferença de idade entre duas pessoas |
-| `idade-atual` | `Ano` | Calcula a idade a partir do ano de nascimento |
-| `maior-valor` | `OMaior` | Descobre o maior entre três números |
-| `numeros-pares` | `Pares` | Imprime os números pares de 0 a 20 |
-| `volume-esfera` | `Esfera` | Calcula o volume de uma esfera a partir do raio |
-
-## Estrutura
-
-```
-src/desafios/
-  <nome-do-desafio>/
-    <Classe>.java
+```bash
+javac -d out src/exercicios/Retangulo.java src/entities/*.java
+java -cp out desafios.Retangulo
 ```
 
-Cada exercício fica em sua própria pasta para ficar fácil de achar. Os arquivos
-não usam `package`, então a classe é executada direto pelo nome.
+Se for pela IDE é mais simples ainda, só abrir o arquivo e dar run no main.
 
-## Observação sobre a entrada
+## o que cada um faz
 
-Parte dos exercícios (os que vieram de plataformas de desafio) lê os dados
-direto do `Scanner`, sem imprimir mensagem pedindo o valor. Se ao rodar a tela
-ficar parada, é porque o programa está esperando você digitar a entrada e
-pressionar Enter.
+- Ano: idade a partir do ano de nascimento
+- AreaQuadrado: área do quadrado a partir do lado
+- AreaRetangulo: área do retângulo a partir da base e altura
+- CalculoSimples: valor total de duas peças (quantidade vezes preço)
+- Consumo: consumo médio em km/l
+- ContaBancaria: lê titular, saldo e depósito, mostra o saldo final
+- Contagem: imprime os pares de 0 a 20
+- ContagemCrescente: 0 a 10 com while
+- ContagemDecresente: 10 a 0 com while
+- Distancia: converte distância em minutos de percurso
+- DistanciaDoisPontos: distância entre dois pontos (x, y)
+- Esfera: volume da esfera a partir do raio
+- IdadeDiferenca: diferença de idade entre duas pessoas
+- Main: salário pelas horas trabalhadas vezes valor da hora
+- OMaior: o maior entre três números
+- Pares: pares de 0 a 20
+- Retangulo: área, perímetro e diagonal de um retângulo
+- SalarioBonus: salário fixo + 15% de comissão sobre vendas
+- triangulo: compara a área de dois triângulos e diz qual é maior
+
+## detalhe chato
+
+Boa parte dos exercícios lê direto do Scanner sem avisar o que esperar. Se a
+tela ficar parada depois de rodar, é só digitar o valor e dar Enter.
