@@ -1,4 +1,4 @@
-package desafios;
+package exercicios;
 
 import entities.Account;
 
