@@ -1,3 +1,5 @@
+package exercicios;
+
 public class ContagemDecresente {
     public static void main(String[] args) {
 

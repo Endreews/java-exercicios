@@ -12,35 +12,21 @@ a partir do Java 8 também.
 ```
 src/
   entities/     (Account, Rectangle, Triangle, usadas por alguns exercícios)
-  exercicios/   (todos os exercícios juntos)
+  exercicios/   (todos os exercícios, package exercicios)
 ```
 
-A maioria dos arquivos em `exercicios/` é independente, sem package. Mas
-ContaBancaria, Contagem, Distancia, DistanciaDoisPontos, Retangulo e
-triangulo ainda declaram `package desafios` no código (não mexi nisso) e
-usam as classes de `entities/`, então continuam precisando compilar junto
-com `entities/`.
+Todo mundo em `exercicios/` está no mesmo package. ContaBancaria, Retangulo
+e triangulo usam as classes de `entities/`, então precisam compilar junto
+com ela.
 
 ## rodando
 
-Pra um exercício independente:
-
 ```bash
-javac src/exercicios/AreaQuadrado.java -d out
-java -cp out AreaQuadrado
+javac -d out src/exercicios/*.java src/entities/*.java
+java -cp out exercicios.AreaQuadrado
 ```
 
-Muda o nome da classe e serve pra qualquer um dos outros que não tem
-package.
-
-Pros que tem `package desafios` (ContaBancaria, Contagem, Distancia,
-DistanciaDoisPontos, Retangulo, triangulo), tem que compilar com
-`entities/` junto:
-
-```bash
-javac -d out src/exercicios/Retangulo.java src/entities/*.java
-java -cp out desafios.Retangulo
-```
+Muda o nome da classe no final e serve pra qualquer um dos exercícios.
 
 Se for pela IDE é mais simples ainda, só abrir o arquivo e dar run no main.
 

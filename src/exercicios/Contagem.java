@@ -1,4 +1,4 @@
-package desafios;
+package exercicios;
 
 public class Contagem {
     public static void main(String[] args) {
