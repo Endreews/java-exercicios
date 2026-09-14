@@ -22,11 +22,9 @@ public class triangulo {
         y.lado2 = scanner.nextDouble();
         y.lado3 = scanner.nextDouble();
 
-        double p = (x.lado1 + x.lado2 + x.lado3) / 2.0;
-        double areaX = Math.sqrt(p * (p - x.lado1) * (p - x.lado2) * (p - x.lado3));
 
-        p = (y.lado1 + y.lado2 + y.lado3) / 2.0;
-        double areaY = Math.sqrt(p * (p - y.lado1) * (p - y.lado2) * (p - y.lado3));
+        double areaX = x.area();
+        double areaY = y.area();
 
         System.out.printf("Triangle X area: %.4f%n", areaX);
         System.out.printf("Triangle Y area: %.4f%n", areaY);
